@@ -2,28 +2,55 @@ package com.example.cristian.healthapp;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class SpeechtoText extends AppCompatActivity {
+public class SpeechtoText extends AppCompatActivity implements OnClickListener {
 
     private  TextView resultTEXT;
+    private  Button buttonCall;
+    private String watson;
+
+    private class AskWatsonTask extends AsyncTask<String,Void,String>{
+        @Override
+        protected String doInBackground(final String...textsToAnalyze){
+            System.out.println(resultTEXT.getText());
+
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    resultTEXT.setText("I dont know what is going on");
+                }
+            });
+            watson= "Test watson";
+            System.out.println(watson);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speechto_text);
         resultTEXT =  (TextView)findViewById(R.id.TVresult);
+        buttonCall = (Button)findViewById(R.id.btnWatson);
+        buttonCall.setOnClickListener(this);
     }
 
+
+
+
     public void onButtonClick(View v){
+
 
         if(v.getId() == R.id.imageButton){
 
@@ -61,4 +88,10 @@ public class SpeechtoText extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.btnWatson) {
+
+        }
+    }
 }

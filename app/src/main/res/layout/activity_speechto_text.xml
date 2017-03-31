@@ -12,7 +12,6 @@
     tools:context="com.example.cristian.healthapp.SpeechtoText">
 
     <TextView
-        android:text="@string/emptystr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="34dp"
@@ -26,20 +25,30 @@
     <ImageButton
         app:srcCompat="@drawable/microphone_search"
         android:id="@+id/imageButton"
-        android:layout_marginBottom="66dp"
+        android:layout_marginBottom="24dp"
         android:layout_width="150dp"
         android:layout_height="200dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="onButtonClick" />
+        android:onClick="onButtonClick (SpeechtoText)"
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="toca el microfono para empezar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="88dp"
         android:id="@+id/textView2"
         android:textSize="18sp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Procesar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/btnWatson"
+        android:onClick="onButtonCall (SpeechtoText)" />
 </RelativeLayout>
