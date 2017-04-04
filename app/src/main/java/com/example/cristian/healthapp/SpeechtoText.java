@@ -12,8 +12,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.ibm.watson.developer_cloud.alchemy.v1.model.Document;
+import com.ibm.watson.developer_cloud.dialog.v1.model.Conversation;
+import com.ibm.watson.developer_cloud.document_conversion.v1.DocumentConversion;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class SpeechtoText extends AppCompatActivity implements OnClickListener {
 
@@ -32,8 +39,20 @@ public class SpeechtoText extends AppCompatActivity implements OnClickListener {
                     resultTEXT.setText("I dont know what is going on");
                 }
             });
-            watson= "Test watson";
+            Conversation service = new Conversation();
+            service.setClientId(Integer.parseInt("f7b692cc-40ad-4ec5-b33d-de36030cb55d"));
+
+            Map<String,Object>params = new HashMap<String,Object>();
+            params.put(service.getInput(),resultTEXT.getText());
+            List<String> conversation = service.getResponse();
+
             System.out.println(watson);
+            return conversation.toString();
+        }
+
+        @Override
+        protected void  onPostExecute(String result){
+            resultTEXT.setText(result);
         }
     }
 
@@ -91,6 +110,9 @@ public class SpeechtoText extends AppCompatActivity implements OnClickListener {
     @Override
     public void onClick(View v) {
         if(v.getId()==R.id.btnWatson) {
+
+            AskWatsonTask task = new AskWatsonTask();
+            task.execute(new String[]{});
 
         }
     }
