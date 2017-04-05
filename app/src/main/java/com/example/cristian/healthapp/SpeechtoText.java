@@ -73,7 +73,6 @@ public class SpeechtoText extends AppCompatActivity implements OnClickListener {
 
         if(v.getId() == R.id.imageButton){
 
-
             promptSpeechInput();
 
         }
