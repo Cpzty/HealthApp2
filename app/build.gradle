@@ -27,6 +27,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile files('C:/Users/Cristian/Documents/uvg 2017/HealthApp2/.idea/libraries/java-sdk-3.7.0-jar-with-dependencies.jar')
-    compile files('C:/Users/ychav/Desktop/ProyectoWatson/HealthApp2/.idea/libraries/java-sdk-3.7.0-jar-with-dependencies.jar')
+//    compile files('C:/Users/Cristian/Documents/uvg 2017/HealthApp2/.idea/libraries/Nospaces.jar')
+//    compile files('C:/Users/ychav/Desktop/ProyectoWatson/HealthApp2/.idea/libraries/Nospaces.jar')
+    compile files('Nospaces.jar')
 }
